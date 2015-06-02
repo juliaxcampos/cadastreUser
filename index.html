@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cadastro de usuário</title>
+
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+		<style type="text/css">
+			body{
+				border-top: 10px solid #a90926;
+				background-image: url(header.jpg);
+				font-family: Arial;
+
+			}
+			.header {
+				margin-top: 10px;
+				text-align: right;
+				margin-bottom: 5px;
+			}
+			.main {
+				background-color: #F5FFFF;
+				margin-top: -4px ;
+				height: 100%;
+				padding: 15px;
+			}
+			.formulario{
+				width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			fieldset > legend{
+				font-size: 25px;
+			}
+			footer{
+				height: 40px;
+			}
+
+
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function confirmarSenhaDigitada() {
+				senha1 = document.cadastrarUsuario.nSenha.value;
+				senha2 = document.cadastrarUsuario.confirmarSenha.value;
+				if (senha1 != senha2) {
+					alert("Senhas incoerentes, tente novamente!");
+					return false;
+				}
+			}
+		</script>
+
+		<div class="header">
+			<img src="logo.png" height="100px">
+		</div>
+		<div class="main">
+			<div class="formulario">
+				<form class="pure-form pure-form-stacked" name="cadastrarUsuario" onsubmit="return confirmarSenhaDigitada();" action="email.php" method="POST">
+				    <fieldset>
+				        <legend>Cadastro de Usuário</legend>
+				        <label for="nomeCompleto"><strong>Nome Completo:</strong></label>
+				        <input id="nomeCompleto" name="nNome" class="pure-input-1" type="text" placeholder="Nome Completo" required><br/>
+				        <label for="email"><strong>E-mail:</strong></label>
+				        <input id="email" name="nEmail" class="pure-input-1" type="email" placeholder="exemplo@ex.com" required><br/>
+				        <div class="pure-u-1 pure-u-md-19-24" >
+			                <label for="telefone"><strong>Telefone:</strong></label>
+			                <input id="telefone" name="nTelefone" class="pure-u-1" required type="text" placeholder="(xx)xxxx-xxxx">
+			            </div>
+
+			            <div class="pure-u-1 pure-u-md-1-5">
+			                <label for="secretaria"><strong>Secretaria</strong></label>
+			                <select id="secretaria" name="nSecretaria" class="pure-input-1">
+			                    <option>SEMOB</option>
+			                    <option>SATED</option>
+			                    <option>ALGUM</option>
+			                </select>
+			            </div>
+				        <label for="matricula"><strong>Matricula</strong></label>
+				        <input id="matricula" name="nMatricula" class="pure-input-1" type="number" placeholder="Matricula" min="1" required><br/>
+				        <div class="pure-u-1 pure-u-md-12-24">
+			                <label for="senha"><strong>Senha:</strong></label>
+			                <input id="senha" name="nSenha" class="pure-u-1" required type="password" placeholder="Senha">
+			            </div>
+
+			            <div class="pure-u-1 pure-u-md-11-24" style="padding-left: 24.5px;">
+			                <label for="confirmarSenha"><strong>Confirma Senha:</strong></label>
+			                <input id="confirmarSenha" name="confirmarSenha" class="pure-u-1" required type="password" placeholder="Repita sua senha">
+			            </div>
+			            <br/>
+			            <br/>
+
+				        <button type="submit" class="pure-button pure-button-primary">Cadastrar</button>
+				    </fieldset>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
